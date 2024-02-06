@@ -1,0 +1,66 @@
+{% extends 'view_courses.html' %}
+{% block title %} Update Courses {% endblock %}
+{% block ind_container %}
+<style>
+    .form-container {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .btn-primary {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 18px;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3; /* Darker blue on hover */
+    }
+</style>
+<div class="form-container">
+    <form method="post">
+        <h3 align="center">Add & Update Courses</h3>
+        <div class="form-group">
+            <label for="course_name">Course Name</label>
+            <input type="text" class="form-control" id="course_name" name="course_name" placeholder="Enter Course name">
+        </div>
+
+        <div class="form-group">
+            <label for="course_id">Course ID</label>
+            <input type="text" class="form-control" id="course_id" name="course_id" placeholder="Enter Course ID">
+        </div>
+
+        <div class="form-group">
+            <label for="introduction">Introduction about Course</label>
+            <textarea class="form-control" id="introduction" name="introduction" rows="4" placeholder="Enter introduction"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+{% endblock %}

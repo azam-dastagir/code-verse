@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    .welcome-text {
+        text-align: center;
+        font-size: 24px;
+        margin-top: 20px;
+    }
+
+    .button-container {
+        text-align: center;
+    }
+
+    .button-container a {
+        text-decoration: none;
+    }
+
+    .custom-button {
+        display: inline-block;
+        margin: 10px;
+        padding: 10px 20px;
+        background-color: #007bff; /* Change the button color */
+        color: #fff; /* Change the text color */
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 18px;
+        transition: background-color 0.3s ease;
+    }
+
+    .custom-button:hover {
+        background-color: #0056b3; /* Change the button color on hover */
+    }
+</style>
+<h4 class="welcome-text">Hello {{ user.name }}, Welcome to CodeVerse</h4>
+
+<div class="button-container">
+    <a href="/view_courses">
+        <button class="custom-button" type="button">View Courses</button>
+    </a>
+</div>
+{% endblock %}

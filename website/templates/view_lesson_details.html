@@ -1,0 +1,61 @@
+{% extends 'view_courses.html' %}
+
+{% block ind_container %}
+<style>
+    .comment-user {
+        font-weight: bold;
+        color: #333;
+        font-size: 14px;
+    }
+
+    .comment-content {
+        font-size: 12px;
+        color: #666;
+    }
+
+    /* Adjust the width of the comment display and input sections */
+    .comment-section {
+        width: 80%; /* Customize the width as needed */
+        margin: auto; /* Center align */
+    }
+</style>
+
+<div class="comment-section">
+    {{ lesson.id }}. {{ lesson.lesson_name }}
+    <div>
+        {% if lesson.video_link %}
+        <iframe width="560" height="315" src={{lesson.video_link}} 
+            title="YouTube video player" frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        {% else %}
+            No video available for this lesson.
+        {% endif %}
+    </div>
+
+    <div class="" id = "comments-{{lesson.id}}">
+        <div class="card">
+            <div class="card-body" id ="comments-expanded-{{lesson.id}}">
+                {% if lesson.comments %}
+                    {% for comment in comments %}
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="comment-text">
+                            <span class="comment-user">{{comment.user.name}}:</span> <span class="comment-content">{{comment.text}}</span>
+                        </div>
+                        <div class="comment-content">
+                            <small class="text-muted">{{comment.date_created}}</small>
+                        </div>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    This lesson has no comments yet.
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <form class="input-group mb-3" method="post" action="/add_comment?lesson_id={{lesson.id}}">
+        <input type="text" id="text" name="text" class="form-control" placeholder="Add comment" />
+        <button type="submit" class="btn btn-primary">Comment</button>
+    </form>
+</div>
+{% endblock %}

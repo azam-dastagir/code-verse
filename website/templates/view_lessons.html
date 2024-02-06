@@ -1,0 +1,51 @@
+{% extends "view_courses.html" %}
+{% block ind_container %}
+<style>
+    .card {
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-header {
+        background-color: #007bff;
+        color: #fff;
+    }
+
+    .card-title {
+        margin: 0;
+        padding: 10px;
+    }
+
+    .list-group-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 16px;
+        padding: 10px;
+        border: none;
+    }
+
+    .list-group-item a {
+        text-decoration: none;
+        color: #333;
+    }
+
+    .list-group-item a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<div class="card" style="width: 18rem;">
+    <div class="card-header">
+        <h4>{{ course.course_name }}</h4>
+    </div>
+    {% for lesson in lessons %}
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            {{ lesson.id }}. <a href="/view_lesson_details?lesson_id={{ lesson.id }}">{{ lesson.lesson_name }}</a>
+        </li>
+    </ul>
+    {% endfor %}
+</div>
+{% endblock %}

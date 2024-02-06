@@ -1,0 +1,22 @@
+{% extends 'view_courses.html' %}
+{% block title %} Insert Data {% endblock %}
+{% block ind_container %}
+<form method="post">
+    <h3 align="center" >Insert Data</h3>
+    <div class="form-group">
+        <label for="lesson_name">Lesson Name</label>
+        <input for="lesson_name" class="form-control" id="lesson_name" name="lesson_name" placeholder="Enter lesson name">
+    </div>
+
+    <div class="form-group">
+        <label for="course_id">Course Id</label>
+        <input for="course_id" class="form-control" id="course_id" name="course_id" placeholder="Enter course id"></label>
+    </div>
+    <div class="form-group">
+        <label for="video_link">Video Link</label>
+        <input for="video_link" class="form-control" id="video_link" name="video_link" placeholder="Enter video link"></label>
+    </div>
+    <br/>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}
